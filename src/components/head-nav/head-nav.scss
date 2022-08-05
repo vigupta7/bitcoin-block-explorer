@@ -1,0 +1,13 @@
+// head-nav {
+
+// }
+
+.nav-search {position:fixed; top:20px; left:54%; transform:translateX(-50%); z-index:9999; width:530px; margin:0 30px 0 40px;}
+.nav-search  ion-searchbar{padding:0;}
+.nav-search .searchbar .searchbar-input{box-shadow:none; border-bottom:solid 2px #ced4da; background:none; padding:5px 10px 5px 36px; height:33px; font-size:14px;}
+.nav-search .searchbar .searchbar-search-icon{display:none;}
+.nav-search .form-control{padding-left:36px; border:none; border-bottom:solid 2px #ced4da; border-radius:0;}
+.nav-search .icon{height:31px; width:32px; padding:0; position:absolute; left:1px; top:1px;}
+.nav-search .icon img{ width:16px; opacity:.6; position:absolute; top:50%; left:50%; transform: translate(-50%,-50%);}
+.nav-search .image img{ width:24px; opacity:1; position:absolute; right:0; top:50%; transform: translateY(-50%);}
+.nav-search .form-error{color:#333!important;}

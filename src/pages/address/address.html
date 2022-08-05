@@ -1,0 +1,51 @@
+<ion-header>
+    <head-nav [title]="'Address'"></head-nav>
+</ion-header>
+
+<ion-content padding>
+    <div class="page-content">
+        <div class="container">
+
+            <div *ngIf="loading" class="loading">
+                <ion-spinner name="crescent"></ion-spinner>
+            </div>
+
+            <div *ngIf="!loading" class="page-content">
+                <div class="page-top">
+                    <h1>Address<span class="of">/</span><span class="hash"><strong>{{ currency.getConvertedNumber(address.balance) | number:'1.0-8' }} {{ currency.currencySymbol }}</strong></span></h1>
+                    <p class="right-item item-hash"><b>Address</b> {{ address.addrStr }}</p>
+                </div>
+            
+                <ion-list class="list--summary">
+                    <div class="row">
+                        <div class="allow-truncated-text col-12 col-md-9">
+                            <h2>Summary</h2>
+                            <ion-item>
+                                Total Received
+                                <ion-note>{{ currency.getConvertedNumber(address.totalReceived) | number:'1.0-8' }} {{ currency.currencySymbol }}</ion-note>
+                            </ion-item>
+                            <ion-item>
+                                Total Sent
+                                <ion-note item-end>{{ currency.getConvertedNumber(address.totalSent) | number:'1.0-8' }} {{ currency.currencySymbol }}</ion-note>
+                            </ion-item>
+                            <ion-item>
+                                Final Balance
+                                <ion-note>{{ currency.getConvertedNumber(address.balance) | number:'1.0-8' }} {{ currency.currencySymbol }}</ion-note>
+                            </ion-item>
+                            <ion-item>
+                                No. Transactions
+                                <ion-note>{{ address.txApperances }}</ion-note>
+                            </ion-item>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <p text-right><qr-code [value]="address.addrStr" [size]="160"></qr-code><p>
+                        </div>
+                    </div>
+                </ion-list>
+                <br><br>
+                <h2>Transactions</h2>
+                <transaction-list [queryType]="'address'" [queryValue]="addrStr"></transaction-list>
+            </div>
+        </div>
+    </div>
+</ion-content>

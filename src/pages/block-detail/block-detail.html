@@ -1,0 +1,82 @@
+<head-nav></head-nav>
+
+<ion-content>
+    <div class="page-content">
+        <div class="container">
+
+            <div *ngIf="loading" class="loading">
+                <ion-spinner name="crescent"></ion-spinner>
+            </div>
+
+            <div *ngIf="!loading">
+                <div class="page-top">
+                    <h1>Block <span class="of"> / </span><span class="hash">#{{ block.height }}</span></h1>
+                    <p class="right-item item-hash"><b>Block Hash</b> {{ block.hash }}</p>
+                </div>
+                <h2 class="sub-title">Summary</h2>
+                <ion-list *ngIf="!loading" class="list--summary">
+                    <div class="allow-truncated-text">
+                        <ion-item>
+                            Number of Transactions
+                            <ion-note>{{ block.tx.length }}</ion-note>
+                        </ion-item>
+                        <ion-item>
+                            Height
+                            <ion-note>{{ block.height }} <span [hidden]="!block.isMainChain">(Mainchain)</span></ion-note>
+                        </ion-item>
+                        <ion-item>
+                            Block Reward
+                            <ion-note >{{ currency.getConvertedNumber(block.reward) | number:'1.0-8' }} {{ currency.currencySymbol }}</ion-note>
+                        </ion-item>
+                        <ion-item>
+                            Timestamp
+                            <ion-note>{{ block.time * 1000 | date:'medium' }} </ion-note>
+                        </ion-item>
+                        <ion-item>
+                            Mined by
+                            <ion-note *ngIf="block.poolInfo"><a href="{{ block.poolInfo.url }}">{{ block.poolInfo.poolName }}</a></ion-note>
+                        </ion-item>
+                        <ion-item>
+                            Merkle Root
+                            <ion-note>{{ block.merkleroot }}</ion-note>
+                        </ion-item>
+                        <ion-item>
+                            Difficulty
+                            <ion-note>{{ block.difficulty }}</ion-note>
+                        </ion-item>
+                        <ion-item>
+                            Bits
+                            <ion-note>{{ block.bits }}</ion-note>
+                        </ion-item>
+                        <ion-item>
+                            Size (bytes)
+                            <ion-note>{{ block.size }}</ion-note>
+                        </ion-item>
+                        <ion-item>
+                            Version
+                            <ion-note>{{ block.version }}</ion-note>
+                        </ion-item>
+                        <ion-item>
+                            Nonce
+                            <ion-note>{{ block.nonce }}</ion-note>
+                        </ion-item>
+                        <ion-item *ngIf="block.previousblockhash != undefined">
+                            Previous Block
+                            <ion-note ><a (click)="goToPreviousBlock()">{{ block.height - 1 }}</a></ion-note>
+                        </ion-item>
+                        <ion-item  *ngIf="block.nextblockhash != undefined">
+                            Next Block
+                            <ion-note><a (click)="goToNextBlock()">{{ block.height + 1 }}</a></ion-note>
+                        </ion-item>
+                    </div>
+                </ion-list>
+                <br/><br/>
+                <h2>Transactions</h2>
+                <transaction-list [queryType]="'block'" [queryValue]="block.hash"></transaction-list>
+
+            </div>
+
+        </div>
+    </div>
+    <site-footer></site-footer>
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-header>
+    <head-nav [title]="'Transaction'"></head-nav>
+</ion-header>
+
+<ion-content padding>
+    <div class="page-content">
+        <div class="container">
+            <div *ngIf="loading" class="loading">
+            <ion-spinner name="crescent"></ion-spinner>
+            </div>
+
+            <div *ngIf="!loading" class="page-content">
+                <div class="page-top">
+                    <h1>Transaction</h1>
+                    <p class="right-item item-hash"><b>Transaction Hash</b> {{ tx.txid }}</p>
+                </div>
+
+                <h2>Summary</h2>
+                <div class="list--summary">
+                    <ion-list class="allow-truncated-text">
+                        <ion-item>
+                            Size
+                            <ion-note>{{ tx.size }} (bytes)</ion-note>
+                        </ion-item>
+                        <ion-item>
+                            Fee Rate
+                            <ion-note>{{ (tx.fees / tx.size) * 1E8 | number:'1.0-8' }} sats/byte</ion-note>
+                        </ion-item>
+                        <ion-item>
+                            Received Time
+                            <ion-note>{{ tx.time * 1000 | date:'medium' }}</ion-note>
+                        </ion-item>
+                        <ion-item>
+                            Mined Time
+                            <ion-note>{{ tx.blocktime * 1000 | date:'medium' }}</ion-note>
+                        </ion-item>
+                        <ion-item>
+                            Included in Block
+                            <ion-note><a (click)="goToBlock(tx.blockhash)">{{ tx.blockhash }}</a></ion-note>
+                        </ion-item>
+                    </ion-list>
+                </div>
+                <br/><br/>
+                
+                <h2>Details</h2>
+                <div class="transaction-list">
+                    <transaction [tx]="tx"></transaction>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

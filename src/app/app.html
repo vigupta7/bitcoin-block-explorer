@@ -1,0 +1,84 @@
+<!-- <ion-menu [content]="content">
+
+  <ion-content>
+    <ion-list>
+      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu> -->
+
+<div class="site-menu">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg align-items-center">
+      <div class="logo d-flex">
+        <a href="https://www.btcexplorer.in/"
+          ><img
+            src="/assets/img/btcexplorer-logo.svg"
+            class="img-fluid"
+            alt="btcexplorer Bitcoin App"
+        /></a>
+        <span class="slogan">Bharat ki <strong>Bitcoin App</strong></span>
+      </div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbars"
+        aria-controls="navbars"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        (click)="showDDMenu();"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div
+        [class]="showMenu ? 'collapse navbar-collapse show' : 'collapse navbar-collapse'"
+        id="navbars"
+      >
+        <form class="search" (ngSubmit)="search($event)">
+          <div class="icon">
+            <img alt="Search" src="/assets/img/search.svg" />
+          </div>
+          <ion-searchbar
+            placeholder="{{ 'Lookup blocks, transactions, address...' }}"
+            [(ngModel)]="q"
+            name="search"
+          ></ion-searchbar>
+          <ion-spinner *ngIf="isSearchLoading" name="crescent"></ion-spinner>
+        </form>
+        <ul class="menu list-unstyled" #dropdown>
+          <li><a href="/refer-earn-program">Refer & Earn</a></li>
+          <li>
+            <a href="javascript:void(0);" (click)="showDataDD();">Explorer</a>
+            <ul
+              [class]="showDataMenu ? 'dropdown-menu dropdown-menu-right list1 show' : 'dropdown-menu dropdown-menu-right list1'"
+            >
+              <li *ngFor="let p of pages">
+                <a class="dropdown-item" href="#" (click)="openPage(p)"
+                  >{{p.title}}</a
+                >
+              </li>
+              <!-- <li><a class="dropdown-item" href="#">Network Fees</a></li> -->
+            </ul>
+          </li>
+          <li class="phone">
+            <a href="tel:+91-8239199199"
+              ><img src="/assets/img/phone.svg" alt="Contact btcexplorer" />
+              +91-8239199199</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+<div *ngIf="loading" class="loading">
+  <ion-spinner name="crescent"></ion-spinner>
+</div>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

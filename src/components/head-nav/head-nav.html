@@ -1,0 +1,78 @@
+<!-- <header class="site-menu">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg align-items-center">
+            <div class="logo d-flex">
+                <a href="javascript:void(0);"><img src="/assets/img/btcexplorer-logo.svg" class="img-fluid"></a>
+                <span class="slogan">Bharat ki <strong>Bitcoin App</strong></span>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbars">
+                <head-nav></head-nav>
+                <ul class="menu list-unstyled" #dropdown>
+                    <li>
+                        <a href="javascript:void(0);" (click)="showDataDD();">Data</a>
+                        <ul [class]="showDataMenu ? 'dropdown-menu dropdown-menu-right list1 show' : 'dropdown-menu dropdown-menu-right list1'">
+                            <li><a class="dropdown-item" href="http://localhost:8100/#/blocks">Blocks</a></li>
+                            <li><a class="dropdown-item" href="http://localhost:8100/#/broadcast-tx">Transactions</a></li>
+                            <li><a class="dropdown-item" href="#">Network Fees</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"  (click)="showConnectDD();">Connect</a>
+                        <ul [class]="showConnectMenu ? 'dropdown-menu dropdown-menu-right list1 show' : 'dropdown-menu dropdown-menu-right list1'">
+                            <li><a class="dropdown-item" target="_blank" href="https://t.me/btcexplorerApp"><img src="/assets/img/telegram.svg"> Telegram : <span>btcexplorer</span></a></li>
+                            <li> <a class="dropdown-item" href="tel:+91-8239199199"><img style="margin-top: 2px;" class="phone" src="/assets/img/phone.svg">Mobile : +91-8239199199</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header> -->
+
+<!-- <div class="nav-search">
+    <form class="search" (ngSubmit)="search($event)">
+        <div class="icon"><img alt="Search" src="/assets/img/search.svg"></div>
+        <ion-searchbar placeholder="{{ 'Lookup blocks, transactions, address...' }}" [(ngModel)]="q" name="search"></ion-searchbar>
+    </form>
+</div> -->
+
+<!-- <ion-navbar color="brand">
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>{{title}}</ion-title>
+  <ion-buttons end>
+    <button ion-button (click)="changeCurrency($event)">
+      <ion-icon name="logo-bitcoin" *ngIf="currency.currencySymbol !== 'USD'"></ion-icon>
+      <ion-icon name="logo-usd" *ngIf="currency.currencySymbol === 'USD'"></ion-icon>&nbsp;{{ currency.currencySymbol }}
+    </button>
+    <button ion-button icon-only (click)="toggleSearch()">
+      <ion-icon name="search"></ion-icon>
+    </button>
+  </ion-buttons> 
+</ion-navbar> -->
+
+<!-- <ion-navbar color="brand">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{title}}</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="changeCurrency($event)">
+        <ion-icon name="logo-bitcoin" *ngIf="currency.currencySymbol !== 'USD'"></ion-icon>
+        <ion-icon name="logo-usd" *ngIf="currency.currencySymbol === 'USD'"></ion-icon>&nbsp;{{ currency.currencySymbol }}
+      </button>
+      <button ion-button icon-only (click)="toggleSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  
+  <form (ngSubmit)="search($event)">
+    <ion-searchbar [hidden]="!showSearch" placeholder="{{ 'Search for block, transaction or address' }}" [(ngModel)]="q" name="search"></ion-searchbar>
+  </form> -->
